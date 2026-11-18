@@ -1,5 +1,7 @@
 package model;
 
+import java.math.BigDecimal;
+
 public class ItemPedido {
 
     private ItemCardapio item;
@@ -16,5 +18,9 @@ public class ItemPedido {
 
     public int getQuantidade() {
         return quantidade;
+    }
+
+    public BigDecimal getSubtotal() {
+        return item.getPreco().multiply(BigDecimal.valueOf(quantidade));
     }
 }
