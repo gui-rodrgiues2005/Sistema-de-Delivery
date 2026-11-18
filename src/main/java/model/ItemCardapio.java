@@ -24,11 +24,19 @@ public class ItemCardapio {
         return preco;
     }
 
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
+
     public String getCategoria() {
         return categoria;
     }
 
     public boolean isAtivo() {
         return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 }
