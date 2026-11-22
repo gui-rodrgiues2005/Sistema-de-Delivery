@@ -8,6 +8,7 @@ public class Pedido {
 
     private List<ItemPedido> itens = new ArrayList<>();
     private boolean fechado;
+    private StatusPedido status;
 
     public List<ItemPedido> getItens() {
         return itens;
@@ -35,5 +36,14 @@ public class Pedido {
 
     public void fechar() {
         this.fechado = true;
+        this.status = StatusPedido.RECEBIDO;
+    }
+
+    public StatusPedido getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusPedido status) {
+        this.status = status;
     }
 }
