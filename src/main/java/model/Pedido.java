@@ -9,6 +9,7 @@ public class Pedido {
     private List<ItemPedido> itens = new ArrayList<>();
     private boolean fechado;
     private StatusPedido status;
+    private Cupom cupom;
 
     public List<ItemPedido> getItens() {
         return itens;
@@ -30,6 +31,14 @@ public class Pedido {
         return subtotal;
     }
 
+    public BigDecimal getTotal() {
+        BigDecimal subtotal = getSubtotal();
+        if (cupom == null) {
+            return subtotal;
+        }
+        return subtotal.subtract(cupom.calcularDesconto(subtotal));
+    }
+
     public boolean isFechado() {
         return fechado;
     }
@@ -45,5 +54,13 @@ public class Pedido {
 
     public void setStatus(StatusPedido status) {
         this.status = status;
+    }
+
+    public Cupom getCupom() {
+        return cupom;
+    }
+
+    public void setCupom(Cupom cupom) {
+        this.cupom = cupom;
     }
 }
